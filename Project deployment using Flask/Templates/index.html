@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Prediction Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>End Semester Marks Prediction</h1>
+        <form method="post" action="/predict">
+            <label for="MSE">Mid Semester Marks</label>
+            <input type="number" name="MSE" required>
+
+            <label for="Attendance">Attendance</label>
+            <input type="number" name="Attendance" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Ginga 2 Template -->
+        {% if Prediction %}
+          <p>Predicted End Semester Marks: {{Prediction}}</p>
+        {% endif %}
+
+        <!-- starting so if....
+        After clicking predict button, there is some values without falsy value(0) to be predicted, so printing the 'Predicted End Semester Marks' with another Ginga 2 template as 'Prediction value',i.e.,{{Prediction}} from the flask....
+        This {{Prediction}} is a Dynamic values replacing from the flask...
+        ending so endif.... -->
+    </div>
+</body>
+</html>
